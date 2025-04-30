@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>1 maggio 2025</title>
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Lora', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: black !important;
+    }
+    @keyframes falling {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    .petal {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff69b4" d="M12,1C7,1,3,5,3,10c0,7,9,13,9,13s9-6,9-13C21,5,17,1,12,1z"/></svg>') no-repeat;
+      pointer-events: none;
+      animation: falling 10s linear infinite;
+    }
+    .card {
+      
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 450px;
+      text-align: center;
+      position: relative;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .heart {
+      color: #e25555;
+      font-size: 48px;
+      margin-bottom: 16px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+    h1 {
+      color: #d72660;
+      margin-bottom: 12px;
+      font-size: 2em;
+    }
+    p {
+      color: #333;
+      font-size: 1.2em;
+      margin-bottom: 0;
+    }
+    .flowers {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 60px;
+      opacity: 0.7;
+    }
+    @media (max-width: 500px) {
+      .card { padding: 24px 10px; }
+      h1 { font-size: 2.5em;
+        color: yellow; }
+      .heart { font-size: 32px; }
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal.show {
+      display: flex;
+      opacity: 1;
+    }
+    
+    @font-face { font-family: 'Emilys Candy'; src: url('EmilysCandy-Regular.ttf') format('truetype'); }
+    
+    .modal-content { font-family: 'Emilys Candy', serif;
+      font-size: 1.25em;
+      line-height: 1.7;
+      letter-spacing: 0.6px;
+      text-align: justify;
+      text-justify: inter-word;
+      background: black;
+      padding: 40px;
+      border-radius: 0px;
+      max-width: 500px;
+      max-height: 89vh;
+      margin: auto;
+      position: relative;
+      transform: translateY(-20px);
+      transition: transform 0.3sease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      border: 2px solid rgba(255, 192, 203, 0.5);
+      overflow-y: auto;
+      color: gold !important;
+    }
+
+    .modal-content::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    .modal-content::-webkit-scrollbar-track {
+      background: rgba(255, 192, 203, 0.1);
+      border-radius: 10px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb {
+      background: rgba(215, 38, 96, 0.5);
+      border-radius: 10px;
+      border: 3px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .modal-content::-webkit-scrollbar-thumb:hover {
+      background: rgba(215, 38, 96, 0.7);
+    }
+    
+    .modal.show .modal-content {
+      transform: translateY(0);
+    }
+    
+    .close-button {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      color: #d72660;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    
+    h1, .open-modal-btn {      
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .open-modal-btn {
+      background: #d72660;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-family: 'Lora', serif;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .open-modal-btn:hover {
+      background: #e25555;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Feliz 1 Maggio 2025 </h1>
+    <div class="heart"><img style="width: 89%;" src="Cuore.png" alt=""></div>
+   
+    <button class="open-modal-btn">❤️ Click Me! ❤️</button>
+    <h1 style="color: yellow;">Ti Amo <br> Immensamente <br> Mi compagnera di vita!!</h1>
+  </div>
+
+  <div class="modal" id="loveModal">
+    <div class="modal-content">
+      <button class="close-button">&times;</button>
+      
+      <div style="line-height: 1.7; text-align: justify; text-justify: inter-word; padding: 20px 15px; font-family: 'Lora', serif; font-size: 1.25em; letter-spacing: 0.6px; color: gold; margin-bottom: 15px;">
+        Querida amor de mi vida, <br>
+        Quiero desearte un hermoso día del trabajador a ti que cada día tienes una fuerza increíble que me deja sin palabras cada día por como pones toda la pasión en todo lo que haces y estoy orgulloso de ti amor de mi vida de estar aquí a tu lado y apoyarte en cada emprendimiento que realices y no olvides nunca detenerte porque con tu infinita pasión que pones en las cosas que haces sabes nunca detenerte y logras completar cada reto que la vida te pone frente a ti y estoy orgulloso de ti porque nunca te rindes logrando siempre llegar a la meta y en cada momento yo estaré aquí a tu lado para animarte y para tenderte una mano porque cada uno de los obstáculos los enfrentaremos juntos con nuestro amor que de manera infinita une nuestras almas fusionándolas en un solo corazón capaz de desatar una fuerza y pasión extraordinaria que nos da vida cada día. Quiero darte las gracias, amor de mi vida, por todas las cosas preciosas que haces por mí y por cómo cada día me enseñas a nunca parar y a alimentar mi pasión, dándome el coraje para afrontar mi trabajo sin miedo. Admiro como cada instante amor de mi vida con inventiva sabes ponerte en la línea y sabes crear nuevas oportunidades para ponerte en la línea cada día como por ejemplo admiro como logras crear publicidad dirigida y conseguir clientes para Netflix y has tenido un éxito enorme en esto y aun cuando hubo momentos de dificultad supiste no parar y seguiste consiguiendo nuevos clientes o con el trabajo para Claro donde trabajaste duro y supiste vender desde el principio logrando obtener resultados increíbles, o cuando supiste ponerte en la línea con la venta de ropa, estoy orgulloso de ti por todo este amor de mi vida por como con ingenio sabes crear nuevas experiencias y sabes ponerte en la línea cada instante y debes seguir así porque desde tu corazón pones una pasión inmensa que te lleva a hacer crecer tu experiencia personal. Quiero decirte que siempre estaré aquí a tu lado y en cada aventura que quieras emprender yo estaré contigo para ayudarte y animarte a no detenerte y animarte porque cada día eres el número uno en todo el universo y siempre tomo ejemplo de ti que me enseña que para todo en la vida hay solución y cada momento hasta los más difíciles eres el faro que guía mi vida y que me lleva al fondo de tu corazón mientras me siento protegido en tus cálidos abrazos que junto a tus dulces besos y tu sonrisa borran todo mi cansancio y como un niño a salvo de todo el mar me siento protegido mientras escucho tu dulce voz que como una mágica melodía me hace relajarme y cerrar suavemente mis ojos porque cada día eres mi lugar seguro y único donde mi alma quiere vivir para siempre y más allá y donde con cada latido de mi corazón estaré aquí para protegerte porque cada momento te mereces solo y únicamente las cosas bellas que esta vida tiene para ofrecer! Estoy orgulloso de ti, amor de mi vida, por cómo desde el primer día de universidad nunca has parado y admiro desde el fondo de mi corazón cómo con todos los sacrificios que has hecho y sigues haciendo lo das todo y te deseo, amor de mi vida, que cada cosa que has aprendido sea fundamental para tu carrera y que te abra nuevos caminos que de la mano recorreremos juntos como lo hemos hecho hasta hoy, examen tras examen. Feliz día del trabajo amor de mi vida que Dios bendiga cada uno de nuestros sueños y metas junto con nuestra extraordinaria relación que cada día se fortalece para siempre y más allá hasta el infinito con nuestros corazones y almas que juntos nos hacen una persona más fuerte que cualquier superhéroe que exista. Te amo inmensamente desde el fondo de mi corazón que existe con cada latido para darte todo mi amor y protegerte cada día de todo mal, te amo infinitamente desde el fondo de mi mente donde cada día eres el sueño más hermoso y único que quiero realizar por toda mi vida y más allá sin volver a abrir los ojos y viviendo cada momento juntos de una manera intensa y única al máximo de nuestras emociones. Te amo ilimitadamente, tú que eres el motor que alimenta mi vida y mi fuerza, eres el oxígeno que hace latir rápido mi corazón, eres mi sangre vital que me hace levantar de la cama y que me da una fuerza que no puedo describir para superar cada obstáculo, eres la estrella que guía como una brújula el camino de mi vida, eres cada molécula que compone mi alma y mi cuerpo, tú que eres mi dulce y única pingüina que quiero amar por siempre y más allá, tú que eres y serás siempre la extraordinaria mogliettina número uno en todo el universo, mi preciosa reina, mi todo! ¡Gracias por existir aquí a mi lado todos los días, mi compañero de vida! A+G+GIOAN = hoy, siempre y más allá!!!
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Crea petali di rosa che cadono
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 10000);
+    }
+
+    // Crea nuovi petali ogni secondo
+    //setInterval(createPetal, 1000);
+
+    // Gestione della finestra modale
+    const modal = document.getElementById('loveModal');
+    const openBtn = document.querySelector('.open-modal-btn');
+    const closeBtn = document.querySelector('.close-button');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('show');
+      const music = document.getElementById('bgMusic');
+      if (music.paused) {
+        music.play();
+      }
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
